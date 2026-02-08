@@ -3,9 +3,9 @@ import Field from "./components/section02/Field";
 import Filed from "./components/section02/Field";
 import Recommend from "./components/section03/Recommend";
 import Benefit from "./components/section04/Benefit";
-import Qna from "./components/section05/Qna";
+import FAQSection from "./components/section05/Fnq";
+import Fnq from "./components/section05/Fnq";
 import CheckTuition from "./components/section06/CheckTuition";
-import Ask from "./components/section06/CheckTuition";
 import Footer from "./Footer";
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
       <Field/>
       <Recommend/>
       <Benefit/>
-      <Qna/>
+      <FAQSection/>
       <CheckTuition/>
       <Footer/>
     </div>

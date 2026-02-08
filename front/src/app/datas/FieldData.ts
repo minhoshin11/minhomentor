@@ -1,7 +1,7 @@
-import { CardProps } from "./CardTypes";
+import { SectionTwoCardProps } from "../Types/CardType";
 
 
-export const CardData: CardProps[] = [
+export const FiledData: SectionTwoCardProps[] = [
   {
     id: "makeup",
     imageSrc: "/makeup.png",

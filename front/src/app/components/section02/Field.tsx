@@ -1,4 +1,6 @@
-import { CardData } from './CardData'
+
+
+import { FiledData } from '@/app/datas/FieldData';
 import Card from './Card'
 // 여기에 입력값 사진,제목,설명 이렇게 3개 필요함
 export default function Field() {
@@ -31,7 +33,7 @@ export default function Field() {
           {/* 카드 섹션 */}
           <section className="w-full pb-20">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 px-4 max-w-6xl mx-auto">
-              {CardData.map((item, index) => (
+              {FiledData.map((item, index) => (
                 <Card key={item.id ?? index} {...item} />
               ))}
             </div>

@@ -1,13 +1,11 @@
-
-
-import { CardProps } from "./CardTypes";
+import { SectionTwoCardProps } from "../../Types/CardType";
 
 export default function Card({
   imageSrc,
   title,
   subtitle,
   description,
-}: CardProps) {
+}: SectionTwoCardProps) {
   return (
       <article className="w-full rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm md:p-7">
       {/* 모바일: 세로(사진->글), md: 가로(사진|글) */}
