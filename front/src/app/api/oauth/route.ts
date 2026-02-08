@@ -65,7 +65,7 @@ const tokenRes = await fetch("https://kauth.kakao.com/oauth/token", {
       return NextResponse.json({ error: "토큰 갱신 실패" }, { status: 401 });
     }
 
-    // 3. 나에게 메시지 보내기 API 호출
+    // 3. 나에게 메시지 보내기 API 호출 (카카오)
     const messageRes = await fetch("https://kapi.kakao.com/v2/api/talk/memo/default/send", {
       method: "POST",
       headers: {
@@ -75,7 +75,7 @@ const tokenRes = await fetch("https://kauth.kakao.com/oauth/token", {
       body: new URLSearchParams({
         template_object: JSON.stringify({
           object_type: "text",
-          text: `🔔 [새로운 상담 접수]\n\n이름: ${body.name}\n연락처: ${body.phone}\n지점: ${body.branchLabels}\n과목: ${body.courseLabels}\n메시지: ${body.message || "없음"}`,
+          text: `-----------🔔 \n[새로운 상담 접수]\n\n이름: ${body.name}\n연락처: ${body.phone}\n지점: ${body.branchLabels}\n과목: ${body.courseLabels}\n메시지: ${body.message || "없음"}`,
           link: {
             web_url: "https://docs.google.com/spreadsheets/d/1nn_vtlGXqVEjJWCe7kw1DmzmMeQcNHrG7pzcKLfKBMQ/edit?gid=1117083148#gid=1117083148",
             mobile_web_url: "https://docs.google.com/spreadsheets/d/1nn_vtlGXqVEjJWCe7kw1DmzmMeQcNHrG7pzcKLfKBMQ/edit?gid=1117083148#gid=1117083148",
@@ -85,7 +85,36 @@ const tokenRes = await fetch("https://kauth.kakao.com/oauth/token", {
       }),
     });
 
-    const messageData = await messageRes.json();
+
+    const discordWebhookUrl = process.env.DISCORD_WEBHOOK_URL;
+
+    if (discordWebhookUrl) {
+      try {
+        const discordText = [
+          "📩 새 상담 접수",
+          body.name ? `- 이름: ${body.name}` : null,
+          body.phone ? `- 연락처: ${body.phone}` : null,
+          body.branchLabels ? `- 지점: ${body.branchLabels}` : null,
+          body.courseLabels ? `- 과목: ${body.courseLabels}` : null,
+          body.message ? `- 메시지: ${body.message}` : "- 메시지: 없음",
+          `- 시간: ${new Date().toLocaleString("ko-KR", {
+            timeZone: "Asia/Seoul",
+          })}`,
+        ]
+          .filter(Boolean)
+          .join("\n");
+
+        await fetch(discordWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ content: discordText }),
+        });
+      } catch {
+        // 디스코드 실패는 폼 제출 자체를 실패로 만들지 않게 "무시" 처리
+      }
+    }
+
+    
     // console.log("4. 카톡 전송 결과:", messageData);
 
     return NextResponse.json({ ok: true, message: "카톡 알림 발송 완료" });
