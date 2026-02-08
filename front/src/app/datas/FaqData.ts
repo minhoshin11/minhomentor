@@ -1,6 +1,10 @@
 // faqData.ts
 
-import { FaqItem } from "../Types/faqTypes";
+import { FaqItem } from "@/Types/FaqType";
+
+
+
+
 
 
 export const faqData: FaqItem[] = [

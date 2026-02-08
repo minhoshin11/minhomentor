@@ -1,4 +1,4 @@
-import { SectionTwoCardProps } from "../../Types/CardType";
+import { SectionTwoCardProps } from "../../../Types/CardType";
 
 export default function Card({
   imageSrc,

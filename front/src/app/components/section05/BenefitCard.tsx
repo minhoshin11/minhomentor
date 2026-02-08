@@ -1,4 +1,4 @@
-import { BenefitItem } from "../../Types/CardType";
+import { BenefitItem } from "../../../Types/CardType";
 
 
 
@@ -26,7 +26,7 @@ export default function BenefitCard({
       
 
       {/* Text */}
-      <div className="flex justify-between">
+      <div className="flex justify-between min-w-115">
         <div className="space-y-1 flex flex-col gap-4 pt-2">
         <span
           className="

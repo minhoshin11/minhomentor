@@ -2,11 +2,11 @@ import HeroSection from "./components/section01/HeroSection";
 import Field from "./components/section02/Field";
 import Filed from "./components/section02/Field";
 import Recommend from "./components/section03/Recommend";
-import Benefit from "./components/section04/Benefit";
-import FAQSection from "./components/section05/Fnq";
-import Fnq from "./components/section05/Fnq";
-import CheckTuition from "./components/section06/CheckTuition";
+import Benefit from "./components/section05/Benefit";
+import FAQSection from "./components/section04/Fnq";
+
 import Footer from "./Footer";
+import RecommendForm from "./components/section06/RecommendForm";
 
 export default function Home() {
   return (
@@ -14,9 +14,9 @@ export default function Home() {
       <HeroSection/>
       <Field/>
       <Recommend/>
-      <Benefit/>
       <FAQSection/>
-      <CheckTuition/>
+      <Benefit/>
+      <RecommendForm/>
       <Footer/>
     </div>
   );

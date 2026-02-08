@@ -1,4 +1,4 @@
-import { BenefitItem } from "../Types/CardType";
+import { BenefitItem } from "../../Types/CardType";
 
 export const benefitData: BenefitItem[] = [
   {
