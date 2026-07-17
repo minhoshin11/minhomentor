@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { BRANCH_OPTIONS, COURSE_OPTIONS } from "./options";
 
-type TabType = "tuition" | "kakao";
+type TabType = "수강료조회" | "KaKao";
 
 function cx(...classes: Array<string | false | undefined | null>) {
   return classes.filter(Boolean).join(" ");
@@ -36,7 +36,7 @@ function ToggleChip({
 }
 
 export default function RecommendForm() {
-  const [tab, setTab] = useState<TabType>("tuition");
+  const [tab, setTab] = useState<TabType>("수강료조회");
 
   const [selectedBranches, setSelectedBranches] = useState<string[]>([]);
   const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
@@ -92,7 +92,7 @@ export default function RecommendForm() {
     try {
       const payload = {
         createdAt: new Date().toISOString(),
-        tab, // ✅ "수강료조회인지/카톡상담인지" 서버에서 확인 가능
+        tab, // 수강료 조회,카톡상담
         branchLabels,
         courseLabels,
         message,
@@ -110,18 +110,13 @@ export default function RecommendForm() {
       });
       
       const data = await res.json().catch(() => ({}));
-
-  //     console.log(res.body)
-  //     console.log("REST_KEY:", process.env.KAKAO_REST_API_KEY);
-  // console.log("REDIRECT_URI:", process.env.KAKAO_REDIRECT_URI);
-  // console.log("FULL ENV:", process.env)
       
       if (!res.ok || !data?.ok) {
         throw new Error(data?.error ?? "제출에 실패했습니다.");
         
       }
 
-      setResultMsg("접수가 완료되었습니다. 곧 연락드리겠습니다.");
+      setResultMsg("접수가 완료되었습니다. 곧 연락드리겠습니다."); // 여기 팝업으로
     } catch (err: any) {
       setResultMsg(err?.message ?? "오류가 발생했습니다.");
     } finally {
@@ -149,10 +144,10 @@ export default function RecommendForm() {
         <div className="mb-10 grid grid-cols-2 gap-4">
           <button
             type="button"
-            onClick={() => setTab("tuition")}
+            onClick={() => setTab("수강료조회")}
             className={cx(
               "h-14 rounded-2xl text-base font-extrabold transition",
-              tab === "tuition"
+              tab === "수강료조회"
                 ? "bg-teal-600 text-white shadow-md"
                 : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
             )}
@@ -162,10 +157,10 @@ export default function RecommendForm() {
 
           <button
             type="button"
-            onClick={() => setTab("kakao")}
+            onClick={() => setTab("KaKao")}
             className={cx(
               "h-14 rounded-2xl text-base font-extrabold transition",
-              tab === "kakao"
+              tab === "KaKao"
                 ? "bg-teal-600 text-white shadow-md"
                 : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
             )}

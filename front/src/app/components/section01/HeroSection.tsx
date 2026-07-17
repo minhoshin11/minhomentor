@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full w-full items-center">
         <div className="mx-auto w-full max-w-6xl px-6">
           <p className="mb-3 text-xl font-medium text-white/90">
-            올댓뷰티 아카데미 민호멘토
+            입시 경험 있는 박해빈멘토
           </p>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl">
