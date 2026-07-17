@@ -2,12 +2,13 @@ import HeroSection from "./components/section01/HeroSection";
 import Field from "./components/section02/Field";
 import Filed from "./components/section02/Field";
 import Recommend from "./components/section03/Recommend";
-import Benefit from "./components/section05/Benefit";
+import Benefit from "./components/section06/Benefit";
 import FAQSection from "./components/section04/Fnq";
 
 import Footer from "./Footer";
-import RecommendForm from "./components/section06/RecommendForm";
+import RecommendForm from "./components/section07/RecommendForm";
 import { mentorData } from "./datas/mentor";
+import ImageCarousel from "./components/section05/ImageCarousel";
 
 export default function Home() {
   return (
@@ -20,8 +21,9 @@ export default function Home() {
       <Field/>
       <Recommend/>
       <FAQSection/>
+      {/* <ImageCarousel/> */}
       <Benefit/>
-      <RecommendForm mentor={mentorData.minho.mentorName}/>
+      <RecommendForm/>
       <Footer/>
     </div>
   );

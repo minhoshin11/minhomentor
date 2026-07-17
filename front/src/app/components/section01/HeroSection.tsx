@@ -42,13 +42,13 @@ export default function HeroSection({
           </p>
 
           <div className="mt-8 flex gap-3">
-            <button className="rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white">
+            {/* <button className="rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white">
               후기 보기
             </button>
 
             <button className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black">
               상담 신청
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -1,46 +1,125 @@
 // src/app/api/oauth/route.ts
+
 import { NextRequest, NextResponse } from "next/server";
 
-// 1. 기존 카카오 토큰 발급용 GET (유지)
-export async function GET(request: NextRequest) {
-  // ... 기존 코드 ...
-}
-
-// 2. 문의 폼 제출용 POST (추가)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { tab , name, phone, message, branchLabels, courseLabels } = body;
 
-    // 디스코드 웹훅 URL 확인
+    const {
+      tab,
+      name,
+      phone,
+      message,
+      branchLabel,
+      courseLabels,
+      mentorName,
+    } = body;
+
     const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
-    if (!DISCORD_WEBHOOK_URL) {
-      return NextResponse.json({ error: "서버 설정 오류" }, { status: 500 });
-    }
 
-    // 디스코드 전송
+    if (!DISCORD_WEBHOOK_URL) {
+      return NextResponse.json(
+        { error: "서버 설정 오류" },
+        { status: 500 }
+      );
+    }
+    
+    //폰 하이푼(-) 추가
+    const formattedPhone =
+  phone && phone.length === 11
+    ? phone.replace(/(\d{3})(\d{4})(\d{4})/, "$1-$2-$3")
+    : phone;
+
+    // 시간
+    const now = new Date().toLocaleString("ko-KR", {
+      timeZone: "Asia/Seoul",
+    });
+
     const response = await fetch(DISCORD_WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        content: `🔔 **새로운 문의 접수**`,
-        embeds: [{
-          fields: [
-            { name: "문의종류", value: tab, inline: true },
-            { name: "이름", value: name, inline: true },
-            { name: "연락처", value: phone, inline: true },
-            { name: "지점", value: branchLabels.join(", ") },
-            { name: "과정", value: courseLabels.join(", ") },
-            { name: "문의", value: message || "없음" },
-          ]
-        }]
+        embeds: [
+          {
+            title: "📩 신규 상담 문의",
+            color: 5763719,
+
+            fields: [
+              {
+                name: "👨‍🏫 담당멘토",
+                value: mentorName || "미지정",
+              },
+
+              {
+                name: "🕒 접수시간",
+                value: now,
+              },
+
+              {
+                name: "🙋 이름",
+                value: name || "미입력",
+                inline: true,
+              },
+              {
+                name: "📞 연락처",
+                value: formattedPhone || "미입력",
+                inline: true,
+              },
+
+              {
+                name: "🏢 희망지점",
+                value: branchLabel || "미선택",
+                inline: true,
+              },
+
+              {
+                name: "💄 희망과정",
+                value:
+                  courseLabels?.length > 0
+                    ? courseLabels.join(", ")
+                    : "미선택",
+                inline: true,
+              },
+
+              {
+                name: "📋 문의유형",
+                value: tab || "미선택",
+              },
+
+              {
+                name: "📝 문의내용",
+                value: message?.trim() || "없음",
+              },
+            ],
+
+          },
+        ],
       }),
     });
 
-    if (!response.ok) throw new Error("디스코드 전송 실패");
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Discord Error:", errorText);
 
-    return NextResponse.json({ ok: true });
+      throw new Error("디스코드 전송 실패");
+    }
+
+    return NextResponse.json({
+      ok: true,
+    });
   } catch (error) {
-    return NextResponse.json({ error: "전송 실패" }, { status: 500 });
+    console.error(error);
+
+    return NextResponse.json(
+      {
+        error: "전송 실패",
+      },
+      {
+        status: 500,
+      }
+    );
   }
 }

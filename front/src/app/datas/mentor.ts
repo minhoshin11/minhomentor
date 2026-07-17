@@ -16,7 +16,7 @@ export const mentorData = {
   },
 
   taein: {
-    mentorName: "김네일멘토",
+    mentorName: "이태인멘토",
     subTitle: "네일 입시 경험 보유",
     title: "프로가 되는 확실한 방법",
     description1: "처음 시작해도 프로가 되도록",

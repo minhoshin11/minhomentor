@@ -27,5 +27,6 @@ export const COURSE_OPTIONS: ChipOption[] = [
   { id: "esthetic", label: "에스테틱" },
   { id: "barber", label: "이용사" },
   { id: "Special" ,label : "속눈썹,왁싱,두피" },
-  { id: "semi-permanent" , label : "반영구"}
+  { id: "semi-permanent" , label : "반영구"},
+  { id: "etc" , label : "기타"}
 ];

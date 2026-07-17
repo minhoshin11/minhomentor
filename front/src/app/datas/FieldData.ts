@@ -4,7 +4,7 @@ import { SectionTwoCardProps } from "../../Types/CardType";
 export const FiledData: SectionTwoCardProps[] = [
   {
     id: "makeup",
-    imageSrc: "/makeup.png",
+    imageSrc: "/section02/makeup.png",
     title: "메이크업",
     subtitle: "얼굴 위에 완성하는 전문 기술",
     description:
@@ -12,7 +12,7 @@ export const FiledData: SectionTwoCardProps[] = [
   },
   {
     id: "hair",
-    imageSrc: "/hair.png",
+    imageSrc: "/section02/hair.jpg",
     title: "헤어",
     subtitle: "컷·펌·컬러로 완성하는 디자인",
     description:
@@ -20,7 +20,7 @@ export const FiledData: SectionTwoCardProps[] = [
   },
   {
     id: "nail",
-    imageSrc: "/nail.png",
+    imageSrc: "/section02/nail.jpg",
     title: "네일아트",
     subtitle: "디테일이 실력을 만드는 아트 테크닉",
     description:
@@ -28,7 +28,7 @@ export const FiledData: SectionTwoCardProps[] = [
   },
   {
     id: "skincare",
-    imageSrc: "/skincare.png",
+    imageSrc: "/section02/et.jpg",
     title: "피부",
     subtitle: "기초부터 관리·실무 테크닉까지",
     description:

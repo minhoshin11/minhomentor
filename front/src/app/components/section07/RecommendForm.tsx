@@ -3,6 +3,8 @@
 import { useMemo, useState } from "react";
 import type { FormEvent } from "react";
 import { BRANCH_OPTIONS, COURSE_OPTIONS } from "./options";
+import { useParams } from "next/navigation";
+import { mentorData } from "@/app/datas/mentor";
 
 type TabType = "수강료조회" | "KaKao";
 
@@ -38,17 +40,18 @@ function ToggleChip({
 export default function RecommendForm()  {
   const [tab, setTab] = useState<TabType>("수강료조회");
 
-  const [selectedBranches, setSelectedBranches] = useState<string[]>([]);
-  const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
-
-  const [message, setMessage] = useState("");
-  const [name, setName] = useState("");
+  const [selectedBranch, setSelectedBranch] = useState(""); // 지역
+  const [selectedCourses, setSelectedCourses] = useState<string[]>([]); //과목
+  const [message, setMessage] = useState("");  // 메세지
+  const [name, setName] = useState(""); //문의자 이름
   const [phone, setPhone] = useState(""); // ✅ string 유지 (앞자리 0 보존)
-
   const [consent, setConsent] = useState(false);
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // 전송중 확인 
   const [resultMsg, setResultMsg] = useState<string | null>(null);
+  const params = useParams();
+  const mentorId = params.id as keyof typeof mentorData;
+  const mentor = mentorData[mentorId]
+  
 
   // ✅ 숫자만 추출
   const phoneDigits = useMemo(() => phone.replace(/\D/g, ""), [phone]);
@@ -61,7 +64,7 @@ export default function RecommendForm()  {
     consent &&
     name.trim().length > 0 &&
     phoneValid &&
-    selectedBranches.length > 0 &&
+    selectedBranch.length > 0 &&
     selectedCourses.length > 0;
 
   const toggleMulti = (
@@ -72,10 +75,10 @@ export default function RecommendForm()  {
     setList(list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
   };
 
-  const branchLabels = useMemo(() => {
-    const map = new Map(BRANCH_OPTIONS.map((x) => [x.id, x.label]));
-    return selectedBranches.map((id) => map.get(id) ?? id);
-  }, [selectedBranches]);
+  // const branchLabels = useMemo(() => {
+  //   const map = new Map(BRANCH_OPTIONS.map((x) => [x.id, x.label]));
+  //   return selectedBranches.map((id) => map.get(id) ?? id);
+  // }, [selectedBranches]);
 
   const courseLabels = useMemo(() => {
     const map = new Map(COURSE_OPTIONS.map((x) => [x.id, x.label]));
@@ -92,8 +95,9 @@ export default function RecommendForm()  {
     try {
       const payload = {
         createdAt: new Date().toISOString(),
+        mentorName: mentor?.mentorName ?? "알수없음",
         tab, // 수강료 조회,카톡상담
-        branchLabels,
+        branchLabel : selectedBranch, // 지역
         courseLabels,
         message,
         name: name.trim(),
@@ -117,6 +121,7 @@ export default function RecommendForm()  {
       }
 
       setResultMsg("접수가 완료되었습니다. 곧 연락드리겠습니다."); // 여기 팝업으로
+      console.log("payload =" , payload)
     } catch (err: any) {
       setResultMsg(err?.message ?? "오류가 발생했습니다.");
     } finally {
@@ -177,15 +182,13 @@ export default function RecommendForm()  {
             </p>
             <div className="flex flex-wrap gap-3">
               {BRANCH_OPTIONS.map((b) => (
-                <ToggleChip
-                  key={b.id}
-                  label={b.label}
-                  selected={selectedBranches.includes(b.id)}
-                  onClick={() =>
-                    toggleMulti(selectedBranches, setSelectedBranches, b.id)
-                  }
-                />
-              ))}
+      <ToggleChip
+        key={b.id}
+        label={b.label}
+        selected={selectedBranch === b.label}
+        onClick={() => setSelectedBranch(b.label)}
+      />
+    ))}
             </div>
           </div>
 

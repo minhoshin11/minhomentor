@@ -3,8 +3,8 @@ import HeroSection from "@/app/components/section01/HeroSection";
 import Field from "@/app/components/section02/Field";
 import Recommend from "@/app/components/section03/Recommend";
 import FaqSection from "@/app/components/section04/Fnq";
-import BenefitSection from "@/app/components/section05/Benefit";
-import RecommendForm from "@/app/components/section06/RecommendForm";
+import BenefitSection from "@/app/components/section06/Benefit";
+import RecommendForm from "@/app/components/section07/RecommendForm";
 import { mentorData } from "@/app/datas/mentor";
 import Footer from "@/app/Footer";
 
