@@ -1,12 +1,24 @@
-import React from 'react'
+type HeroSectionProps = {
+  mentor: string;
+  subTitle: string;
+  title: string;
+  description1: string;
+  description2: string;
+};
 
-export default function HeroSection() {
+export default function HeroSection({
+  mentor,
+  subTitle,
+  title,
+  description1,
+  description2,
+}: HeroSectionProps) {
   return (
-     <section className="relative h-[1080px] w-full overflow-hidden">
+    <section className="relative h-[1080px] w-full overflow-hidden">
       {/* Background image */}
       <img
         src="/section01.png"
-        alt="메이크업샵 셀프 메이크업"
+        alt={mentor}
         className="absolute inset-0 h-full w-full object-cover"
       />
 
@@ -17,29 +29,29 @@ export default function HeroSection() {
       <div className="relative z-10 flex h-full w-full items-center">
         <div className="mx-auto w-full max-w-6xl px-6">
           <p className="mb-3 text-xl font-medium text-white/90">
-            입시 경험 있는 박해빈멘토
+            {subTitle}
           </p>
 
           <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl">
-            프로가 되는 <span className="text-white">확실한 방법</span>
+            {title}
           </h1>
 
           <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 md:text-lg flex-col flex">
-            <span>처음 시작해도 프로가 되도록</span>
-            <span>목데이터 민호멘토가 도와드립니다.</span>
+            <span>{description1}</span>
+            <span>{description2}</span>
           </p>
 
           <div className="mt-8 flex gap-3">
-            
             <button className="rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white">
               후기 보기
             </button>
-            <button className=" rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black">
+
+            <button className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black">
               상담 신청
             </button>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

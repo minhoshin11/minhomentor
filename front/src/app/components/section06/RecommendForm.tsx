@@ -35,7 +35,7 @@ function ToggleChip({
   );
 }
 
-export default function RecommendForm() {
+export default function RecommendForm()  {
   const [tab, setTab] = useState<TabType>("수강료조회");
 
   const [selectedBranches, setSelectedBranches] = useState<string[]>([]);

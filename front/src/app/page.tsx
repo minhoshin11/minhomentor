@@ -7,16 +7,21 @@ import FAQSection from "./components/section04/Fnq";
 
 import Footer from "./Footer";
 import RecommendForm from "./components/section06/RecommendForm";
+import { mentorData } from "./datas/mentor";
 
 export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <HeroSection/>
+      <HeroSection mentor={mentorData.minho.title}
+      subTitle={mentorData.minho.subTitle}
+      title={mentorData.minho.title}
+      description1={mentorData.minho.description1}
+      description2={mentorData.minho.description2}/>
       <Field/>
       <Recommend/>
       <FAQSection/>
       <Benefit/>
-      <RecommendForm/>
+      <RecommendForm mentor={mentorData.minho.mentorName}/>
       <Footer/>
     </div>
   );
