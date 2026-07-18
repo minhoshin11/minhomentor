@@ -5,7 +5,7 @@ type HeroSectionProps = {
   description1: string;
   description2: string;
 };
-
+// 커밋을 위한 주석
 export default function HeroSection({
   mentor,
   subTitle,
@@ -15,7 +15,7 @@ export default function HeroSection({
 }: HeroSectionProps) {
   return (
     <section className="relative h-[1080px] w-full overflow-hidden">
-      {/* Background image */}
+      {/* Background images */}
       <img
         src="/section01.png"
         alt={mentor}

@@ -1,5 +1,5 @@
 import { SectionTwoCardProps } from "../../../Types/CardType";
-
+// 커밋을 위한 주석
 export default function Card({
   imageSrc,
   title,

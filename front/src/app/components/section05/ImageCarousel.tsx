@@ -1,5 +1,5 @@
 "use client";
-
+// 커밋을 위한 주석
 import { useEffect, useState } from "react";
 
 const images = [
