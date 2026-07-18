@@ -55,7 +55,7 @@ export default function BenefitCard({
   <img
     src={iconSrc}
     alt={iconAlt}
-style={{ height: '90px', width: '90px', objectFit: 'contain' }}
+  style={{ height: '90px', width: '90px', objectFit: 'contain' }}
     loading="lazy"
   />
 </div>
