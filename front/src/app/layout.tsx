@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "K-BeautyMentor",
+  title: "BeautyMentor",
   description: "Create Your Future with Beauty",
   icons : {
     icon : "/favicon.png"

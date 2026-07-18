@@ -77,10 +77,6 @@ export default function RecommendForm()  {
     setList(list.includes(id) ? list.filter((x) => x !== id) : [...list, id]);
   };
 
-  // const branchLabels = useMemo(() => {
-  //   const map = new Map(BRANCH_OPTIONS.map((x) => [x.id, x.label]));
-  //   return selectedBranches.map((id) => map.get(id) ?? id);
-  // }, [selectedBranches]);
 
   const courseLabels = useMemo(() => {
     const map = new Map(COURSE_OPTIONS.map((x) => [x.id, x.label]));
@@ -107,7 +103,7 @@ export default function RecommendForm()  {
       };
 
       // 🚀 1. 서버로 보내기 전 데이터 최종 확인
-      // console.log("전송할 데이터(Payload):", payload);
+    
 
       const res = await fetch("/api/oauth", {
         method: "POST",
@@ -123,7 +119,6 @@ export default function RecommendForm()  {
       }
 
       setResultMsg("접수가 완료되었습니다. 곧 연락드리겠습니다."); // 여기 팝업으로
-      console.log("payload =" , payload)
     } catch (err: any) {
       setResultMsg(err?.message ?? "오류가 발생했습니다.");
     } finally {
