@@ -17,7 +17,7 @@ export default function NotFoundMentor() {
 
         <p className="mb-8 text-xl leading-relaxed text-zinc-500">
           입력하신 멘토 페이지를 찾을 수 없습니다.
-          <br />
+          <br />Í
           미용 진로 상담이 필요하시다면
           <br />
           전문 상담을 통해 안내받아보세요.
