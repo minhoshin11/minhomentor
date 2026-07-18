@@ -5,7 +5,6 @@ import FaqSection from "@/app/components/section04/Fnq";
 import BenefitSection from "@/app/components/section06/Benefit";
 import RecommendForm from "@/app/components/section07/RecommendForm";
 import { mentorData } from "@/app/datas/mentor";
-import Footer from "@/app/Footer";
 import NotFoundMentor from "./not-found";
 
 export default async function Page({
@@ -37,7 +36,6 @@ export default async function Page({
       <FaqSection />
       <BenefitSection />
       <RecommendForm />
-      <Footer />
     </div>
   );
 }

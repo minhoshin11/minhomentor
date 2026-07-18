@@ -19,14 +19,14 @@ export default function BenefitCard({
         bg-white
         px-6
         py-3
-        shadow-sm
+        shadow-md
       "
     >
       
 
       {/* Text */}
-      <div className="flex justify-between sm:justify-between min-w-115">
-        <div className=" gap-4 flex flex-col justify-center pt-2 px-20">
+      <div className="flex justify-between w-full">
+        <div className="gap-4 flex flex-col justify-center pt-2">
         <span
           className="
             inline-flex

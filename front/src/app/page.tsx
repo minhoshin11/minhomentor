@@ -4,8 +4,6 @@ import Filed from "./components/section02/Field";
 import Recommend from "./components/section03/Recommend";
 import Benefit from "./components/section06/Benefit";
 import FAQSection from "./components/section04/Fnq";
-
-import Footer from "./Footer";
 import RecommendForm from "./components/section07/RecommendForm";
 import { mentorData } from "./datas/mentor";
 import ImageCarousel from "./components/section05/ImageCarousel";
@@ -13,7 +11,7 @@ import ImageCarousel from "./components/section05/ImageCarousel";
 export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <HeroSection mentor={mentorData.minho.title}
+      <HeroSection mentor={mentorData.minho.mentorName}
       subTitle={mentorData.minho.subTitle}
       title={mentorData.minho.title}
       description1={mentorData.minho.description1}
@@ -24,7 +22,6 @@ export default function Home() {
       {/* <ImageCarousel/> */}
       <Benefit/>
       <RecommendForm/>
-      {/* <Footer/> */}
     </div>
   );
 }

@@ -27,28 +27,20 @@ export default function HeroSection({
 
       {/* Content */}
       <div style={{paddingBottom : "20vh"}} className="relative z-10 flex h-full w-full items-center">
-        <div className="mx-auto w-full max-w-6xl px-6">
-          <p className="mb-3 text-xl font-medium text-white/90">
-            {subTitle}
-          </p>
+        <div className="mx-auto w-full max-w-6xl px-6 pb-10">
 
           <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-6xl">
             {title}
           </h1>
 
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-white/80 md:text-lg flex-col flex">
+          <p className="mt-4 max-w-xl leading-relaxed text-white/80 text-2xl font-semibold flex-col md:flex-row md:gap-2 flex mb-1">
             <span>{description1}</span>
             <span>{description2}</span>
           </p>
-
+<p className="mb-3 text-lg font-bold text-white/60">
+            {subTitle}
+          </p>
           <div className="mt-8 flex gap-3">
-            {/* <button className="rounded-xl border border-white/40 px-5 py-3 text-sm font-semibold text-white">
-              후기 보기
-            </button>
-
-            <button className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black">
-              상담 신청
-            </button> */}
           </div>
         </div>
       </div>

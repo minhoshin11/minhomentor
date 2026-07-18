@@ -97,7 +97,7 @@ export default function RecommendForm()  {
     try {
       const payload = {
         createdAt: new Date().toISOString(),
-        mentorName: mentor?.mentorName ?? "알수없음",
+        mentorName: mentor?.mentorName ?? "신민호멘토",
         tab, // 수강료 조회,카톡상담
         branchLabel : selectedBranch, // 지역
         courseLabels,
@@ -140,7 +140,7 @@ export default function RecommendForm()  {
           <h2 className="text-3xl font-extrabold leading-tight text-zinc-900 md:text-4xl">
             수강료 조회하고
             <br />
-            100% 반환혜택 모두 받아가세요!
+            4가지 혜택 모두 받아가세요!
           </h2>
           <p className="mt-3 text-sm text-zinc-500 md:text-base">
             상담을 통해 현재 상황에 맞는 맞춤 로드맵을 제안해드립니다
@@ -298,7 +298,7 @@ export default function RecommendForm()  {
             </button>
 
             {resultMsg ? (
-              <p className="text-center text-sm text-zinc-600">{resultMsg}</p>
+              <p className="text-center text-lg font-bold text-zinc-600">{resultMsg}</p>
             ) : null}
           </div>
         </form>

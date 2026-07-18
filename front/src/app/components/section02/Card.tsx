@@ -13,7 +13,7 @@ export default function Card({
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:gap-7">
         
         {/* Image */}
-        <div className="w-full lg:w-[220px] lg:flex-shrink-0">
+        <div className="w-full lg:w-55 lg:shrink-0">
           <div className="relative overflow-hidden rounded-xl bg-zinc-100">
             <img
               src={imageSrc}
