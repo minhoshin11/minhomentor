@@ -5,6 +5,7 @@ import type { FormEvent } from "react";
 import { BRANCH_OPTIONS, COURSE_OPTIONS } from "./options";
 import { useParams } from "next/navigation";
 import { mentorData } from "@/app/datas/mentor";
+import PrivacyConsent from "./PrivacyConsent";
 
 type TabType = "수강료조회" | "KaKao";
 
@@ -51,7 +52,8 @@ export default function RecommendForm()  {
   const params = useParams();
   const mentorId = params.id as keyof typeof mentorData;
   const mentor = mentorData[mentorId]
-  
+  const [lookConsent,setLookConsent] = useState(false)
+
 
   // ✅ 숫자만 추출
   const phoneDigits = useMemo(() => phone.replace(/\D/g, ""), [phone]);
@@ -270,7 +272,7 @@ export default function RecommendForm()  {
           </div>
 
           {/* 동의 */}
-          <label className="flex items-center justify-center gap-2 text-sm text-zinc-600">
+          {/* <label className="flex items-center justify-center gap-2 text-sm text-zinc-600">
             <input
               type="checkbox"
               checked={consent}
@@ -278,8 +280,8 @@ export default function RecommendForm()  {
               className="h-5 w-5 accent-teal-600"
             />
             개인정보 수집·이용에 동의합니다. (필수)
-          </label>
-
+          </label> */}
+              <PrivacyConsent checked={consent} onChange={setConsent}/>
           {/* CTA */}
           <div className="space-y-4">
             <button

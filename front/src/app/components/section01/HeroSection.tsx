@@ -26,7 +26,7 @@ export default function HeroSection({
       <div className="absolute inset-0 bg-black/55" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full w-full items-center">
+      <div style={{paddingBottom : "20vh"}} className="relative z-10 flex h-full w-full items-center">
         <div className="mx-auto w-full max-w-6xl px-6">
           <p className="mb-3 text-xl font-medium text-white/90">
             {subTitle}

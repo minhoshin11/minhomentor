@@ -25,7 +25,7 @@ export const benefitData: BenefitItem[] = [
   {
     id: "benefit-04",
     number: "04",
-    title: "필기책 및 온라인강의 제공",
+    title: "필기책 및 온라인강의",
     iconSrc: "/section04/shot.png",
     iconAlt: "트로피 아이콘",
   },

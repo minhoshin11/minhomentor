@@ -12,7 +12,6 @@ export default function BenefitCard({
   return (
     <div
       className="
-        relative
         overflow-hidden
         rounded-2xl
         border
@@ -26,8 +25,8 @@ export default function BenefitCard({
       
 
       {/* Text */}
-      <div className="flex justify-between min-w-115">
-        <div className="space-y-1 flex flex-col gap-4 pt-2">
+      <div className="flex justify-between sm:justify-between min-w-115">
+        <div className=" gap-4 flex flex-col justify-center pt-2 px-20">
         <span
           className="
             inline-flex
@@ -52,19 +51,15 @@ export default function BenefitCard({
             <p className="text-2xl font-extrabold text-zinc-900">{subtitle}</p>
           ) : null}
         </div>
-        <img
-        src={iconSrc}
-        alt={iconAlt}
-        className="
-          right-6
-          object-contain
-          drop-shadow
-          md:h-[110px]
-          md:w-[110px]
-        "
-        loading="lazy"
-      />
+
+  <img
+    src={iconSrc}
+    alt={iconAlt}
+style={{ height: '90px', width: '90px', objectFit: 'contain' }}
+    loading="lazy"
+  />
+</div>
       </div>
-    </div>
+
   );
 }

@@ -20,8 +20,9 @@ export default function Field() {
           
           {/* 후킹 멘트 */}
           <div className="flex flex-col justify-center items-center gap-10 mt-20 text-white text-center">
-            <div className="text-4xl font-bold">
-              손끝의 기술이 커리가 되는 순간
+            <div className="text-4xl font-bold flex flex-col">
+              <p>손끝의 기술이</p>
+              <p>커리어가 되는 순간</p>
             </div>
 
             <div className="text-xl font-bold flex flex-col gap-4">

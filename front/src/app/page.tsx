@@ -24,7 +24,7 @@ export default function Home() {
       {/* <ImageCarousel/> */}
       <Benefit/>
       <RecommendForm/>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   );
 }

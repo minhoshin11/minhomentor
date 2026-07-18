@@ -1,0 +1,22 @@
+.icon-container {
+  display: none; /* 기본(모바일)은 숨김 */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 768px 이상에서만 보임 */
+@media (min-width: 768px) {
+  .icon-container {
+    display: flex;
+    height: 110px;
+    width: 110px;
+  }
+}
+
+.icon-image {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1));
+}
