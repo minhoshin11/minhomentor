@@ -18,7 +18,7 @@ export default function BenefitSection() {
       {/* 콘텐츠 */}
       <div className="relative z-10 sm:mx-20 mx-5 flex flex-col items-center justify-between gap-10">
         <h2 className="mb-10 flex flex-col gap-2 text-center text-4xl font-extrabold text-zinc-900 md:flex-row">
-          <p>지금 등록하면 받을 수 있는</p>
+          <p>지금 등록하면 받는</p>
           <p>특별 혜택!</p>
         </h2>
 

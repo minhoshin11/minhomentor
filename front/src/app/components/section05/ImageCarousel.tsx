@@ -20,29 +20,30 @@ export default function Carousel() {
   );
 
   return (
-    <section className="w-full bg-[#faf7f2] px-20 pt-10 pb-30">
-      <div className="flex flex-col items-center ">
-        <h2 className="text-4xl  flex font-bold">
+    <section className="w-full bg-[#faf7f2] px-4 pt-5 pb-25 md:px-20">
+      <div className="flex flex-col items-center">
+        <h2 className="text-center text-3xl font-bold md:text-4xl">
           결과로 증명하는 멘토링
         </h2>
-        <p className="mt-3 text-base text-zinc-500 md:text-lg">
-            실제 수강생들의 수상이력 및 합격 후기입니다.
-          </p>
-      
+
+        <p className="mt-3 text-center text-sm text-zinc-500 md:text-lg">
+          실제 수강생들의 수상이력 및 합격 후기입니다.
+        </p>
+
         <div
           ref={emblaRef}
-          className="w-full max-w-7xl overflow-hidden mt-10"
+          className="mt-10 w-full max-w-7xl overflow-hidden"
         >
           <div className="flex">
             {reviewData.map((review) => (
               <div
                 key={review.id}
-                className="basis-1/2 shrink-0 px-4"
+                className="basis-full shrink-0 px-2 md:basis-1/2 md:px-4"
               >
-                <div className="relative h-[900px] w-full overflow-hidden rounded-2xl bg-black">
+                <div className="relative h-[550px] w-full overflow-hidden rounded-2xl bg-black md:h-[900px]">
                   
                   {/* 상단 뱃지 */}
-                  <div className="absolute left-5 top-5 z-10 rounded-full border-2 border-teal-600 bg-zinc-900/90 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
+                  <div className="absolute left-4 top-4 z-10 rounded-full border-2 border-teal-600 bg-zinc-900/90 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-md md:left-5 md:top-5 md:px-4 md:py-2 md:text-sm">
                     {review.text}
                   </div>
 
@@ -51,8 +52,8 @@ export default function Carousel() {
                     alt={review.text}
                     fill
                     priority={review.id <= 2}
-                    className="object-contain p-4"
-                    sizes="50vw"
+                    className="object-contain p-2 md:p-4"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
               </div>
