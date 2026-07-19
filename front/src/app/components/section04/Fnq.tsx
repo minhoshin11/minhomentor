@@ -27,10 +27,9 @@ export default function FaqSection() {
       <div className="relative z-10 mx-auto max-w-275 px-4">
         {/* 제목 */}
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-zinc-900 md:text-4xl">
-            자주묻는 질문을
-            <br className="md:hidden" />
-            한곳에 모아봤어요!
+          <h2 className=" flex justify-center gap-2 md:flex-row flex-col text-3xl font-extrabold text-zinc-900 md:text-4xl">
+            <p>자주묻는 질문을</p>
+            <p>한곳에 모아봤어요!</p>
           </h2>
 
           <p className="mt-3 text-base text-zinc-500 md:text-lg">

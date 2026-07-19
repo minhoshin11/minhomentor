@@ -6,7 +6,7 @@ import Benefit from "./components/section06/Benefit";
 import FAQSection from "./components/section04/Fnq";
 import RecommendForm from "./components/section07/RecommendForm";
 import { mentorData } from "./datas/mentor";
-import ImageCarousel from "./components/section05/ImageCarousel";
+import Carousel from "./components/section05/ImageCarousel";
 
 export default function Home() {
   return (
@@ -19,7 +19,7 @@ export default function Home() {
       <Field/>
       <Recommend/>
       <FAQSection/>
-      {/* <ImageCarousel/> */}
+      <Carousel/>
       <Benefit/>
       <RecommendForm/>
     </div>

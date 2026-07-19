@@ -6,6 +6,7 @@ import BenefitSection from "@/app/components/section06/Benefit";
 import RecommendForm from "@/app/components/section07/RecommendForm";
 import { mentorData } from "@/app/datas/mentor";
 import NotFoundMentor from "./not-found";
+import Carousel from "../components/section05/ImageCarousel";
 
 export default async function Page({
   params,
@@ -30,12 +31,12 @@ export default async function Page({
         description1={mentor.description1}
         description2={mentor.description2}
       />
-
-      <Field />
-      <Recommend />
-      <FaqSection />
-      <BenefitSection />
-      <RecommendForm />
+       <Field/>
+        <Recommend/>
+        <FaqSection/>
+        <Carousel/>
+        <BenefitSection/>
+        <RecommendForm/>
     </div>
   );
 }

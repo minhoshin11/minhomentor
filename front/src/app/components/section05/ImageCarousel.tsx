@@ -1,97 +1,61 @@
 "use client";
-// 커밋을 위한 주석
-import { useEffect, useState } from "react";
 
-const images = [
-  "/reviews/01.png",
-  "/reviews/02.png",
-  "/reviews/03.png",
-  "/reviews/04.png",
-];
+import Image from "next/image";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import { reviewData } from "@/app/datas/ReviewData";
 
-export default function ImageCarousel() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    if (images.length <= 1) return;
-
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 3000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  const prevSlide = () => {
-    setCurrent((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % images.length);
-  };
+export default function Carousel() {
+  const [emblaRef] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "start",
+    },
+    [
+      Autoplay({
+        delay: 5000,
+        stopOnInteraction: false,
+      }),
+    ]
+  );
 
   return (
-    <section className="w-full bg-white py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        {/* 제목 */}
-        <div className="mb-10 text-center">
-          <h2 className="text-4xl font-bold text-zinc-900">
-            수강생 작품 포트폴리오
-          </h2>
-
-          <p className="mt-3 text-zinc-500">
-            실제 수강생들의 작품을 확인해보세요.
+    <section className="w-full bg-[#faf7f2] px-20 pt-10 pb-30">
+      <div className="flex flex-col items-center ">
+        <h2 className="text-4xl  flex font-bold">
+          결과로 증명하는 멘토링
+        </h2>
+        <p className="mt-3 text-base text-zinc-500 md:text-lg">
+            실제 수강생들의 수상이력 및 합격 후기입니다.
           </p>
-        </div>
+      
+        <div
+          ref={emblaRef}
+          className="w-full max-w-7xl overflow-hidden mt-10"
+        >
+          <div className="flex">
+            {reviewData.map((review) => (
+              <div
+                key={review.id}
+                className="basis-1/2 shrink-0 px-4"
+              >
+                <div className="relative h-[900px] w-full overflow-hidden rounded-2xl bg-black">
+                  
+                  {/* 상단 뱃지 */}
+                  <div className="absolute left-5 top-5 z-10 rounded-full border-2 border-teal-600 bg-zinc-900/90 px-4 py-2 text-sm font-medium text-white backdrop-blur-md">
+                    {review.text}
+                  </div>
 
-        {/* 캐러셀 */}
-        <div className="relative w-full h-20 rounded-3xl bg-zinc-200 shadow-2xl">
-        <div className="relative w-full overflow-hidden bg-zinc-100">
-      <div className="flex h-full w-full items-center justify-center">
-        <img
-      src={images[current]}
-      alt=""
-      className="max-h-full max-w-full object-contain"
-    />
-  </div>
-</div>
-          {/* 이전 */}
-          <button
-            type="button"
-            onClick={prevSlide}
-            className="absolute left-5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/60 px-4 py-3 text-white"
-          >
-            ←
-          </button>
-
-          {/* 다음 */}
-          <button
-            type="button"
-            onClick={nextSlide}
-            className="absolute right-5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-black/60 px-4 py-3 text-white"
-          >
-            →
-          </button>
-
-          {/* 페이지 표시 */}
-          <div className="absolute right-5 top-5 z-20 rounded-full bg-black/60 px-4 py-2 text-sm text-white">
-            {current + 1} / {images.length}
-          </div>
-
-          {/* 인디케이터 */}
-          <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
-            {images.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrent(idx)}
-                className={`h-3 w-3 rounded-full ${
-                  current === idx
-                    ? "bg-white"
-                    : "bg-white/40"
-                }`}
-              />
+                  <Image
+                    src={review.image}
+                    alt={review.text}
+                    fill
+                    priority={review.id <= 2}
+                    className="object-contain p-4"
+                    sizes="50vw"
+                  />
+                </div>
+              </div>
             ))}
           </div>
         </div>
