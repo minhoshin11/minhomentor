@@ -8,7 +8,7 @@ export const mentorData = {
   },
 
   haebin: {
-    mentorName: "박해빈멘토",
+    mentorName: "해빈멘토",
     subTitle: "* 헤어·메이크업·네일·피부·기타 과정 상담",
     title: "미용의 시작",
     description1: "입시·자격증·취업까지",
@@ -16,10 +16,20 @@ export const mentorData = {
   },
 
   taein: {
-    mentorName: "이태인멘토",
+    mentorName: "태인멘토",
     subTitle: "* 헤어·메이크업·네일·피부·기타 과정 상담",
     title: "미용의 시작",
     description1: "입시·자격증·취업까지",
     description2: "이태인멘토가 함께합니다.",
   },
+  
+  soojung : {
+    mentorName: "수정멘토",
+    subTitle: "* 헤어·메이크업·네일·피부·기타 과정 상담",
+    title: "미용의 시작",
+    description1: "입시·자격증·취업까지",
+    description2: "양수정멘토가 함께합니다.",
+  }
+
+
 };
